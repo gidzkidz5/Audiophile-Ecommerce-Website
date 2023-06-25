@@ -50,7 +50,7 @@ export default function ProductList({category}) {
                     <div className='product-list-child flex' key={item.id}>
                         <div className='product-img-container'>
                           <img 
-                          src={"src/assets/product-" + item.slug + "/" + screenSize + "/image-category-page-preview.jpg"}
+                          src={"./product-" + item.slug + "/" + screenSize + "/image-category-page-preview.jpg"}
                           />
                     
                         </div>

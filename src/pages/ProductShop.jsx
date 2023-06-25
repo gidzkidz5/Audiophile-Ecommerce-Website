@@ -72,7 +72,7 @@ return (
         <div className='product-list-child flex'>
             <div className='product-img-container'>
                 <img 
-                src={"../src/assets/product-" + currentProduct.slug + "/" + screenSize + "/image-product.jpg"}
+                src={"./product-" + currentProduct.slug + "/" + screenSize + "/image-product.jpg"}
                 />
             </div>
 
@@ -121,13 +121,13 @@ return (
 
         <div className="product-shop-images-container">
             <div className="grid-image-container">
-                <img src={"../src/assets/product-" + currentProduct.slug + "/" + screenSize + "/image-gallery-1.jpg"}/>
+                <img src={"./product-" + currentProduct.slug + "/" + screenSize + "/image-gallery-1.jpg"}/>
             </div>
             <div className="grid-image-container">
-                <img src={"../src/assets/product-" + currentProduct.slug + "/" + screenSize + "/image-gallery-2.jpg"}/>
+                <img src={"./product-" + currentProduct.slug + "/" + screenSize + "/image-gallery-2.jpg"}/>
             </div>
             <div className="grid-image-container">
-                <img src={"../src/assets/product-" + currentProduct.slug + "/" + screenSize + "/image-gallery-3.jpg"}/>
+                <img src={"./product-" + currentProduct.slug + "/" + screenSize + "/image-gallery-3.jpg"}/>
             </div>
 
         </div>
@@ -139,7 +139,7 @@ return (
                     <div>
                         <img 
                         src = 
-                        {"../src/assets/shared/" + screenSize + "/image-" + currentProduct.others[0].slug + ".jpg"}
+                        {"./shared/" + screenSize + "/image-" + currentProduct.others[0].slug + ".jpg"}
 
                         />
                     </div>
@@ -156,7 +156,7 @@ return (
                     <div>
                         <img 
                         src = 
-                        {"../src/assets/shared/" + screenSize + "/image-" + currentProduct.others[1].slug + ".jpg"}
+                        {"./shared/" + screenSize + "/image-" + currentProduct.others[1].slug + ".jpg"}
                             
                         />
                     </div>
@@ -173,7 +173,7 @@ return (
                     <div>
                         <img 
                         src = 
-                        {"../src/assets/shared/" + screenSize + "/image-" + currentProduct.others[2].slug + ".jpg"}
+                        {"./shared/" + screenSize + "/image-" + currentProduct.others[2].slug + ".jpg"}
                             
                         />
                     </div>
