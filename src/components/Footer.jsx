@@ -29,7 +29,7 @@ export default function Footer() {
                 </div>
 
                 <div className="footer-copyright">
-                    <h1 className="ff-sanserif font-white fs-body opacity-half">Copyright 2022. All RightsReserved
+                    <h1 className="ff-sanserif font-white fs-body opacity-half">Copyright 2022. All Rights Reserved
                     </h1>
                 </div>
 
