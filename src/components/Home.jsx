@@ -53,7 +53,7 @@ export default function Home() {
 
         <section id="showcase-feature" className="ff-sanserif">
             <div id="showcase-zx9">
-                <img src={"../src/assets/home/" + screenSize + "/image-speaker-zx9.png"}/>
+                <img src={"./home/" + screenSize + "/image-speaker-zx9.png"}/>
                 <div className="showcase-text-container1">
                     <h1 className="fs-1 font-white uppercase">ZX9 speakers</h1>
                     <p className="fs-body font-white" style={{opacity: "0.75"}}>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
