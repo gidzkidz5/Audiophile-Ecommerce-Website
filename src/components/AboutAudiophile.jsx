@@ -36,7 +36,7 @@ export default function AboutAudiophile() {
             </div>
             <div className="about-audiophile-image-container">
                 <img 
-                    src={"../shared/" + screenSize + "/image-best-gear.jpg"}
+                    src={"./shared/" + screenSize + "/image-best-gear.jpg"}
                 />
             </div>
         </section>

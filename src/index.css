@@ -1634,7 +1634,8 @@ form section:not(:last-child) {
 
 #showcase-yx1 > div:first-child {
     background-image: url('assets/home/desktop/image-earphones-yx1.jpg');
-   
+    background-size: contain;
+    background-repeat: no-repeat;
     aspect-ratio: 1.6875;
     width: 37.5vw;
     border-radius: 10px;
