@@ -308,7 +308,7 @@ export default function Checkout() {
                     return(
                     <div className="cart-item-container ff-sanserif" key={index}>
                         <div className="cart-item">
-                            <img src={"../src/assets/cart/image-" + item.currentProduct.slug + ".jpg"}/>
+                            <img src={"./cart/image-" + item.currentProduct.slug + ".jpg"}/>
                             <div className="cart-item-text">
                                 <h1 className="fs-body">{item.currentProduct.name.split(item.currentProduct.category.charAt(0).toUpperCase() + item.currentProduct.category.slice(1))[0]}</h1>
                                 <h2 className="font-black" style={{opacity: "0.5"}}>${addCommasToPrice(item.currentProduct.price)}</h2>
