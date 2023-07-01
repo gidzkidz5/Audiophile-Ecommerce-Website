@@ -4,6 +4,7 @@ import Button2 from "./Button2";
 import CategoriesBar from "./CategoriesBar";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 export default function Home() {
@@ -43,10 +44,11 @@ export default function Home() {
                 <h2 className="uppercase font-white">XX99 MARK II HEADPHONES</h2>
                 <p className="font-white fs-body" style={{opacity: "0.5"}}>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
             </div>
-
-            <Button1 
-                title = "see product"
-            />
+            <Link to="headphones/xx99-mark-two-headphones">
+                <Button1 
+                    title = "see product"
+                />
+            </Link>
         </div>
 
         <CategoriesBar/>
@@ -57,18 +59,22 @@ export default function Home() {
                 <div className="showcase-text-container1">
                     <h1 className="fs-1 font-white uppercase">ZX9 speakers</h1>
                     <p className="fs-body font-white" style={{opacity: "0.75"}}>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
+                    <Link to="speakers/zx9-speaker">
                     <Button2 
                         title= "see product"
                     />
+                    </Link>
                 </div>
             </div>
 
             <div id="showcase-zx7">
                 <div className="showcase-text-container2">
                     <h1 className="fs-4 uppercase font-black">ZX7 Speakers</h1>
+                    <Link to="speakers/zx7-speaker">
                     <Button2 
                         title= "see product"
                     />
+                    </Link>
                 </div>
             </div>
 
@@ -77,9 +83,11 @@ export default function Home() {
                 <div className="showcase-text-container3">
                     <div>
                         <h1 className="fs-4 uppercase font-black">YX1 Earphones</h1>
+                        <Link to="earphones/yx1-earphones">
                         <Button2 
                             title= "see product"
                         />
+                        </Link>
                     </div>
                 </div>
             </div>

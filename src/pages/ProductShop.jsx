@@ -1,6 +1,7 @@
 import { useParams} from "react-router"
 import { useContext, useEffect, useState } from "react"
 import { CartContext } from "../CartContext"
+import { Link } from "react-router-dom"
 
 import data from "../data.json"
 import GoBack from "../components/GoBack"
@@ -9,12 +10,16 @@ import Button1 from "../components/Button1"
 import AboutAudiophile from "../components/AboutAudioPhile"
 import CategoriesBar from "../components/CategoriesBar"
 
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+
 
 
 export default function ProductShop() {
 
 const { id } = useParams()
 const { cartData, updateCartData } = useContext(CartContext);
+
+
 
 const currentProduct = data.filter((product) => (product.slug === id) )[0]
 function addCommasToPrice(price) {
@@ -58,8 +63,18 @@ const handleValueChange = (value) => {
 }
 
 // Cart
+
+const [showMessage, setShowMessage] = useState(false);
+
 const addToCart = () => {
     updateCartData({currentProduct, itemQuantity})
+
+    setShowMessage(true);
+
+    // Hide the message after a certain time (e.g., 3 seconds)
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 3500);
 }
 
 
@@ -95,6 +110,7 @@ return (
 
                 
             </div>
+            {showMessage && <div className="item-added ff-sanserif"><CheckCircleOutlineIcon style={{color: 'green', marginRight: "15px"}} /> Item added to cart</div>}
         </div>
 
         <div className="product-shop-text-container ff-sanserif">
@@ -146,9 +162,11 @@ return (
 
                     <h1 className="fs-5 ff-sanserif font-black uppercase">{currentProduct.others[0].name}</h1>
 
-                    <Button1
-                        title="See product"
-                    />
+                    <Link to={"/" + currentProduct.category + "/" + currentProduct.others[0].slug}>        
+                        <Button1
+                            title="See product"
+                        />
+                    </Link>
                     
                 </div>
 
@@ -162,10 +180,11 @@ return (
                     </div>
 
                     <h1 className="fs-5 ff-sanserif font-black uppercase">{currentProduct.others[1].name}</h1>
-
-                    <Button1
-                        title="See product"
-                    />
+                    <Link to={"/" + currentProduct.category + "/" + currentProduct.others[1].slug}>        
+                        <Button1
+                            title="See product"
+                        />
+                    </Link>
                     
                 </div>
 
@@ -179,10 +198,11 @@ return (
                     </div>
 
                     <h1 className="fs-5 ff-sanserif font-black uppercase">{currentProduct.others[2].name}</h1>
-
-                    <Button1
-                        title="See product"
-                    />
+                    <Link to={"/" + currentProduct.category + "/" + currentProduct.others[2].slug}>    
+                        <Button1
+                            title="See product"
+                        />
+                    </Link>
                     
                 </div>
             </div>

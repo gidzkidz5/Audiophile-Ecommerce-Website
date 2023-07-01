@@ -9,7 +9,26 @@ export default function Header() {
     const [expanded, setExpanded] = useState(false);
     const [isCartExpanded, setisCartExpanded] = useState(false)
 
-    const { cartData, updateCartData, updateCartItemQuantity } = useContext(CartContext)
+    const { cartData, clearCart, updateCartItemQuantity } = useContext(CartContext)
+
+    const [ sum, setSum ] = useState(0);
+    
+    useEffect (()=> {
+    
+        let cartSum = 0
+
+        cartData.forEach( function(item, index) {
+            console.log( item,index )
+            cartSum += (item.currentProduct.price * item.itemQuantity)
+
+        })
+        console.log("cartSum:" + cartSum)
+
+        setSum(cartSum)
+
+        }
+        , [cartData]
+    )
 
     function handleClick() {
         setExpanded(expanded === false ? true : false)
@@ -17,6 +36,10 @@ export default function Header() {
     
     function handleCartClick() {
         setisCartExpanded(!isCartExpanded)
+    }
+
+    function removeAll() {
+        clearCart()
     }
 
     function addCommasToPrice(price) {
@@ -59,6 +82,7 @@ export default function Header() {
             <div className="cart-toggle-parent">
                 <button className="cart-toggle" onClick={handleCartClick} >
                     <span className="sr-only">Cart</span>
+                    <div className="cart-toggle-counter" style={(cartData.length) ? {display: "flex"} : {display: "none"}}>{cartData.length}</div>
                 </button>
 
                 {/* Cart Container */}
@@ -66,7 +90,7 @@ export default function Header() {
                 <div className="cart-container ff-sanserif">
                     <div className="cart-header">
                         <h1 className="fs-6">Cart {cartData.length === 0 ? "" : "(" + cartData.length + ")"}</h1>
-                        <h2 className="fs-body">Remove all</h2>
+                        <h2 className="fs-body" onClick={removeAll}>Remove all</h2>
                     </div>
 
                     
@@ -98,7 +122,7 @@ export default function Header() {
 
                     <div className="cart-total ff-sanserif uppercase">
                         <h1>Total</h1>
-                        <h2>$5396</h2>
+                        <h2>${sum}</h2>
                     </div>
                     
                     <Link to="/checkout" >

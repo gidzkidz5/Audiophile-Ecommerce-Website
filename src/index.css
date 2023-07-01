@@ -227,7 +227,9 @@ header {
     padding-block: 2rem;
     width: auto;
 }
-
+.active {
+    color: hsl(var(--clr-peach));
+}
 .header-img {
     grid-area: logo;
 }
@@ -251,6 +253,10 @@ nav {
 
 nav ul li {
     cursor: pointer;
+}
+
+nav ul li:hover {
+    color: hsl(var(--clr-peach));
 }
 
 ul {
@@ -294,6 +300,22 @@ ul {
     cursor: pointer;
     grid-area: cart;
     justify-self: end;
+}
+
+.cart-toggle-counter {
+    position: absolute;
+    background-color:#fa8440;
+    bottom: 0;
+    left: 0;
+    aspect-ratio: 1.0;
+    border-radius: 8px;
+    width: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    
 }
 
 header {
@@ -454,6 +476,7 @@ header {
 
 header nav {
     grid-area: none;
+    max-height: 100%;
 }
 
 .primary-navigation {
@@ -809,6 +832,7 @@ nav ul{
     text-align: start;
     justify-content: center;
     max-width: 450px;
+    position: relative;
 }
 
 .product-text-container span {
@@ -823,6 +847,40 @@ nav ul{
     margin-bottom: 2.5rem;
 }
 
+.item-added {
+    position: absolute;
+    /* top: 0; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding-inline: 100px;
+    height: 16vh;
+    max-height: 180px;
+
+    border-radius: 10px;
+    
+    transform: translateY(150px);
+    font-size: 24px;
+    background-color: hsl(var(--clr-darkgrey));
+
+    animation: inview 3.5s 0s ;
+}
+
+@keyframes inview {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1.0
+    }
+
+    100% {
+        opacity: 0
+    }
+}
 /*  Desktop  */
 @media only screen and (min-width: 64.01em) {
     #product-list > div:nth-child(2n) {
@@ -891,6 +949,9 @@ nav ul{
         max-width: 420px;
     }
 
+    .product-list-description {
+       padding-inline: 12px
+    }
 }
 
 /* About Audiophile */
@@ -1031,6 +1092,7 @@ nav ul{
     .go-back {
         margin-top: 33px;
         margin-bottom: 24px;
+        z-index: 10000000000;
      }
 }
 
@@ -1038,6 +1100,7 @@ nav ul{
     .go-back {
         margin-top: 1rem;
         margin-bottom: 1.5rem;
+        z-index: 10000000000;
      }
 }
 
@@ -1310,6 +1373,7 @@ nav ul{
     gap: 9px;
     width: 21.458vw;
     max-width: 100%;
+    position: relative;
 }
 
 .label-input-container label {
@@ -1321,11 +1385,63 @@ nav ul{
   
 }
 
+.label-input-container input:hover {
+    cursor: pointer;
+    border: 1px solid #D87D4A;
+}
+
+.label-input-container input:focus {
+    cursor: text;
+    outline: 1px solid #D87D4A;
+}
+
+.label-input-container[type="radio"] input:hover {
+    cursor: pointer;
+    border: none;
+}
+
+.label-input-container input[type="radio"]:focus {
+    cursor: pointer;
+    outline: 0;
+}
+
+.hide {
+    display: none;
+}
+
+
+
 .label-input-container input {
     height: 56px;
     border-radius: 8px;
     border: 1px solid #CFCFCF;
     background-color: #FFFFFF;
+    padding-left: 1.5rem;
+
+    position: relative;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.25px;
+}
+
+.error {
+    font-size: 12px;
+    text-align: right;
+    font-weight: 500;
+    letter-spacing: -0.214px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    line-height: normal;
+    color:  #CD2C2C;
+   
+}
+
+.label-input-container input::placeholder {
+    color: #000;
+    opacity: 0.4;
 }
 
 .label-input-container.address {
@@ -1343,7 +1459,7 @@ form section:not(:last-child) {
     border: 1px solid #CFCFCF;
     background: #FFF;
     gap: 21px;
-
+    padding-left: 1rem;
 }
 
 .radio-container-parent  {
@@ -1365,6 +1481,39 @@ form section:not(:last-child) {
 .radio-container-options div:not(:last-child){
     margin-bottom: 1rem;
 }
+input[type='radio'] {
+    width: 20px;
+    height: 56px;
+    cursor: pointer;
+}
+
+/* input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: 21px;
+    left: 4px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: 21px;
+    left: 4px;
+    position: relative;
+    background-color: #ffa500;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+} */
 
 .form-payment-container {
     max-width: 100%;
@@ -1381,7 +1530,6 @@ form section:not(:last-child) {
     border-radius: 10px;
     height: fit-content;
     max-height: fit-content;
-   
 }
 
 /* wide desktop */
@@ -1934,4 +2082,35 @@ form section:not(:last-child) {
         max-width: 300px;
     }
         
+}
+
+/* Order Confirmation */
+#order-confirmation-parent {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transform: translateY(70%);
+    /* height: 100%; */
+
+    visibility: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+#order-confirmation {
+    max-width:660px;
+    width: 37.5vw;
+    padding: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: start;
+    justify-content: center;
+    align-items: flex-start;
+
+
 }
