@@ -2238,7 +2238,7 @@ input[type='radio']:checked:after {
     opacity: 1.0;
     margin-top: 50px;
 
-    animation: scaling 0.2s ease 1;
+    animation: scaling 0.1s ease 1;
 
 }
 
