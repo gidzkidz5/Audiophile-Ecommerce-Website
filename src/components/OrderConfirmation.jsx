@@ -12,7 +12,7 @@ export default function OrderConfirmation({ imgSrc, itemName, itemPrice, itemQua
         setTimeout( () => {
             clearCart();
             navigate('/')
-        }, 1000)
+        }, 500)
     }
 
     return (
@@ -23,10 +23,7 @@ export default function OrderConfirmation({ imgSrc, itemName, itemPrice, itemQua
 
             <p>You will receive an email confirmation shortly</p>
 
-            <div>
-                <div>
-                    {/* cart items */}
-                </div>
+            
                 <div className="order-preview-container ff-sanserif">
                     {/* grand total */}
                     <div className="order-preview">
@@ -48,7 +45,7 @@ export default function OrderConfirmation({ imgSrc, itemName, itemPrice, itemQua
                         <h2 className="fs-6 font-white">${grandTotal}</h2>
                     </div>
                 </div>
-            </div>
+         
 
             <Button1 
                 title="Back to Home"

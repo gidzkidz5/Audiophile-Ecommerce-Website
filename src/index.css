@@ -2244,7 +2244,7 @@ input[type='radio']:checked:after {
 
 @keyframes scaling {
     0% {
-        scale: 0.1
+        scale: 0
     }
 
     100% {
@@ -2390,6 +2390,16 @@ input[type='radio']:checked:after {
     
     }
 
+    #order-confirmation {
+    
+        max-width:400px;
+        width: 87.31vw;
+        padding: 2rem;   
+     
+       
+    
+    }
+
     .order-preview-items {
         justify-content: space-evenly;
     }
@@ -2420,4 +2430,18 @@ input[type='radio']:checked:after {
     }
 
     
+}
+
+.spinner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+.chakra-spinner {
+    width: 50px;
+    aspect-ratio: 1.0;
+    margin-right: 10px;
+  
 }

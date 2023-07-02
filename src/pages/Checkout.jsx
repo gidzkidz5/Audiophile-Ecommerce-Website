@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import OrderConfirmation from "../components/OrderConfirmation";
 
+import { Spinner } from "@chakra-ui/spinner"
+
 export default function Checkout() {
 
     function limitLength(input) {
@@ -173,7 +175,7 @@ export default function Checkout() {
 
             setTimeout( () => {
                 setProcessing(false)
-            }, 3000)
+            }, 2500)
         }
 
         
@@ -366,12 +368,16 @@ export default function Checkout() {
                 itemQuantity = {cartData[0].itemQuantity}
                 othersNum = {(cartData.length - 1)}
                 grandTotal= {sum}
-
             />
 
             :
+            <div className="spinner-container">
+                <Spinner
 
-            <div className="processing ff-sanserif"> Your order is processing...</div>
+                   speed="1.0s"
+                />
+                <div className="processing ff-sanserif"> Your order is processing...</div>
+            </div>
             }
         </div>
        
