@@ -1,6 +1,19 @@
 import Button1 from "./Button1";
+import { useNavigate } from "react-router";
+import { CartContext } from "../CartContext";
+import { useContext } from "react";
 
-export default function OrderConfirmation() {
+export default function OrderConfirmation({ imgSrc, itemName, itemPrice, itemQuantity, othersNum, grandTotal }) {
+    const { clearCart } = useContext(CartContext)
+
+    const navigate = useNavigate();
+
+    const returnHome = () => {
+        setTimeout( () => {
+            clearCart();
+            navigate('/')
+        }, 1000)
+    }
 
     return (
         <div className="ff-sanserif" id="order-confirmation">
@@ -14,16 +27,35 @@ export default function OrderConfirmation() {
                 <div>
                     {/* cart items */}
                 </div>
-                <div>
+                <div className="order-preview-container ff-sanserif">
                     {/* grand total */}
-                    <h1 className="uppercase">Grand Total</h1>
-                    <h2>$5,446</h2>
+                    <div className="order-preview">
+                        <div className="order-preview-items">
+                            <img src={imgSrc}/>
+                            <div>
+                                <h1 className="fs-body">{itemName}</h1>
+                                <h2 className="fs-overline">${itemPrice}</h2>
+                            </div>
+                            <h3>x{itemQuantity}</h3>
+                        </div>
+                        <div className="order-preview-line"></div>
+                        <div className="other-items">
+                            <span>and {othersNum} other item(s)</span>
+                        </div>
+                    </div>
+                    <div className="order-preview-total">
+                        <h1 className="uppercase fs-overline font-white" >Grand Total</h1>
+                        <h2 className="fs-6 font-white">${grandTotal}</h2>
+                    </div>
                 </div>
             </div>
 
             <Button1 
                 title="Back to Home"
+                handleClick={returnHome}
             />
         </div>
     )
 }
+
+

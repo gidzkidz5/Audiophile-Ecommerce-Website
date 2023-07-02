@@ -5,6 +5,7 @@ import CategoriesBar from "./CategoriesBar";
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import FancyButton from "./FancyButton";
 
 
 export default function Home() {
@@ -40,15 +41,22 @@ export default function Home() {
         <>
         <div id="front-page-feature">
             <div className="front-page-text-container ff-sanserif flex">
-                <h1 className="fs-overline uppercase font-white" style={{opacity: "0.5"}}>New Product</h1>
+                <h1 className="fs-overline uppercase font-white new-product-home" style={{opacity: "0.5"}}>
+                <span></span>
+                New Product</h1>
                 <h2 className="uppercase font-white">XX99 MARK II HEADPHONES</h2>
                 <p className="font-white fs-body" style={{opacity: "0.5"}}>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
             </div>
-            <Link to="headphones/xx99-mark-two-headphones">
+            {/* <Link to="headphones/xx99-mark-two-headphones">
                 <Button1 
                     title = "see product"
                 />
-            </Link>
+
+            </Link> */}
+            <FancyButton
+                title = "See Product"
+                pageTo="headphones/xx99-mark-two-headphones"
+            />
         </div>
 
         <CategoriesBar/>

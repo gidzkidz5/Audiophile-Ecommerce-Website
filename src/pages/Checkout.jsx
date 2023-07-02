@@ -65,7 +65,8 @@ export default function Checkout() {
 
     const handleSubmit = (e) => {
         
-        console.log(inputs);
+        e.preventDefault
+        console.log(inputs)
 
         const errorName = document.querySelectorAll('.error')[0];
         const errorEmail = document.querySelectorAll('.error')[1];
@@ -141,39 +142,53 @@ export default function Checkout() {
         } else {
             errorCountry.classList.add('hide')
         }
+
+        if (inputs.paymentMethod === "e-money"){
+            if (!inputs.eMoneyNum){
+                e.preventDefault();
+                errors.eMoney = 'This field is required'
+                errorEMoney.classList.remove('hide');
+            } else {
+                errorEMoney.classList.add('hide')
+            }
+    
+            if (!inputs.pin){
+                e.preventDefault();
+                errors.pin = 'This field is required'
+                errorEPin.classList.remove('hide');
+            } else {
+                errorEPin.classList.add('hide')
+            }
+        }
+
         
-        if (!inputs.eMoneyNum){
-            e.preventDefault();
-            errors.eMoney = 'This field is required'
-            errorEMoney.classList.remove('hide');
-        } else {
-            errorEMoney.classList.add('hide')
-        }
-
-        if (!inputs.pin){
-            e.preventDefault();
-            errors.pin = 'This field is required'
-            errorEPin.classList.remove('hide');
-        } else {
-            errorEPin.classList.add('hide')
-        }
-
+        
         if (Object.keys(errors).length > 0) {
             setError(errors);
-        } 
+        } else if (cartData.length === 0) {
+            e.preventDefault();
+        } else {
+            e.preventDefault()
+            setShowConfirmation(true)
 
-
+            setTimeout( () => {
+                setProcessing(false)
+            }, 3000)
+        }
 
         
 
     }
+
+    const [ showConfirmation, setShowConfirmation ] = useState(false)
+    const [ processing, setProcessing] = useState(true)
 
 
     return(
         <>
         <Header/>
         <main style={{backgroundColor: "#F1F1F1"}} >
-        <form id="form-main" onSubmit={handleSubmit}>
+        <form id="form-main" onSubmit={handleSubmit} action="/">
             <div id="form-container" className="ff-sanserif">
                 <h1 className="fs-3 uppercase ff-sanserif">Checkout</h1>
                
@@ -325,8 +340,6 @@ export default function Checkout() {
                     })
                     : <h1>Cart is Empty</h1>}   
                 
-
-
                 <div className="cart-total ff-sanserif uppercase">
                     <h1>Total</h1>
                     <h2>${sum}</h2>
@@ -342,12 +355,32 @@ export default function Checkout() {
         </form>
             
         </main>
-        
+
+        { showConfirmation && 
         <div id="order-confirmation-parent">
-            <OrderConfirmation/>
+            { !processing ?
+            <OrderConfirmation
+                imgSrc = {(!(cartData[0] == null)) && "./cart/image-" + cartData[0].currentProduct.slug + ".jpg"}
+                itemName = {cartData[0].currentProduct.name}
+                itemPrice = {cartData[0].currentProduct.price}
+                itemQuantity = {cartData[0].itemQuantity}
+                othersNum = {(cartData.length - 1)}
+                grandTotal= {sum}
+
+            />
+
+            :
+
+            <div className="processing ff-sanserif"> Your order is processing...</div>
+            }
         </div>
+       
+        }
 
         <Footer/>
         </>
     )
 }
+
+
+// "./cart/image-xx99-mark-two-headphones.jpg"
