@@ -1927,6 +1927,26 @@ input[type='radio']:checked:after {
     background-color: transparent;
     font-weight: 700;
 }
+/* Desktop  */
+@media only screen and (min-width: 64.01em) {
+    #front-page-feature {
+        transform: translateY(-100px);
+    }
+
+    header::after {
+        content: '';
+        max-width: 100%;
+        background-color: transparent;
+        height: 1px;
+        border: 1px solid hsl(var(--clr-white), 0.2);
+
+        position: absolute;
+        bottom: -5%;
+        margin-inline: 11.45vw;
+        right: 0;
+        left: 0;
+    }
+}
 /* Tablet */
 @media only screen and (min-width: 35.01em) and (max-width: 64em) {
     #front-page-feature {
@@ -2043,10 +2063,6 @@ input[type='radio']:checked:after {
         flex: 1;
         border-radius: 10px;
     }
-
-    
-
-    
 }
 
 /* Mobile */
@@ -2105,6 +2121,25 @@ input[type='radio']:checked:after {
         overflow: visible;
     }
 
+    #showcase-zx9::after {
+        content: '';
+        background-image: url('assets/home/desktop/pattern-circles.svg');
+        background-size: auto;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 100%;
+        height: 172%;
+        max-width: 580px;
+        position: absolute;
+        z-index: 0;
+        bottom: -90px;
+
+        left: 0px;
+        right: 0px;
+        
+        
+    }
+
     #showcase-zx9 img{
         position: relative;
         aspect-ratio: 0.832109;
@@ -2131,23 +2166,6 @@ input[type='radio']:checked:after {
         line-height: 42px;
     }
 
-    
-    #showcase-zx9::after {
-        content: '';
-        background-image: url('assets/home/desktop/pattern-circles.svg');
-        background-size: auto;
-        background-repeat: no-repeat;
-        background-position: center center;
-        width: 172%;
-        height: 172%;
-        max-width: 580px;
-        position: absolute;
-        z-index: 0;
-        bottom: -90px;
-        left: 3.5vw;
-        
-        transform: translateZ(-1); /* Adjusted line */
-    }
 
     #showcase-zx7 {
         background-image: url('assets/home/mobile/image-speaker-zx7.jpg');

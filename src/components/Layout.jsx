@@ -1,19 +1,23 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import { Outlet } from "react-router-dom";
-import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+
 
 
 
 export default function Layout() {
 
-
+    const location = useLocation();
+    const isRootPage = location.pathname === "/";
 
     return (
         <div className="site-wrapper">
-            <Header 
-               
-            />
+
+            { isRootPage ? 
+            (<Header
+                extraStyles={ {backgroundColor: "transparent"} }
+            />) : <Header/>}
+        
             <main>
                 <Outlet />
             </main>

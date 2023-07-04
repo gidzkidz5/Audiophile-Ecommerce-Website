@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/shared/desktop/logo.svg";
 import ItemCounter from "./ItemCounter";
 
-export default function Header() {
+export default function Header( { extraStyles }) {
     const [expanded, setExpanded] = useState(false);
     const [isCartExpanded, setisCartExpanded] = useState(false)
 
@@ -63,7 +63,7 @@ export default function Header() {
     return (
         
         <>
-        <header>
+        <header style={extraStyles}>
             <div className="header-img">
                 <NavLink to="/"><img  src={logo}></img></NavLink>
             </div>
