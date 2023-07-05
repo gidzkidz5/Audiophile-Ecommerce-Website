@@ -324,7 +324,7 @@ header {
 }
 
 #darken-menu[data-visible="true"]{
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
@@ -511,7 +511,7 @@ nav ul{
 }
 
 #darken-menu[data-visible="true"] {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     background-color: hsla(var(--clr-black), 0.55);
@@ -974,7 +974,7 @@ nav ul{
     font-size: 24px;
     background-color: hsl(var(--clr-darkgrey));
 
-    animation: inview 3.5s 0s ;
+    animation: inview 3.6s 0s ;
 }
 
 @keyframes inview {
@@ -1928,9 +1928,18 @@ input[type='radio']:checked:after {
     font-weight: 700;
 }
 /* Desktop  */
-@media only screen and (min-width: 64.01em) {
+@media only screen and (min-width: 80em){
+
     #front-page-feature {
         transform: translateY(-100px);
+    }
+
+   
+
+}
+@media only screen and (min-width: 64.01em) {
+    .transparent {
+        background-color: transparent;
     }
 
     header::after {

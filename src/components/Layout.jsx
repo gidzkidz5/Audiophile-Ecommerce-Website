@@ -15,7 +15,7 @@ export default function Layout() {
 
             { isRootPage ? 
             (<Header
-                extraStyles={ {backgroundColor: "transparent"} }
+                extraClass="transparent"
             />) : <Header/>}
         
             <main>
