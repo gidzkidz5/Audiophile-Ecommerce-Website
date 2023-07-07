@@ -1,12 +1,15 @@
 import headphones from "../assets/shared/desktop/image-category-thumbnail-headphones.png";
 import speakers from "../assets/shared/desktop/image-category-thumbnail-speakers.png";
 import earphones from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
+import { useNavigate } from "react-router";
 
 
 export default function CategoriesBar() {
 
+    const navigate = useNavigate();
+
     function handleClick(category) {
-        window.location.href = "../" + category
+       navigate("../" + category);
     }
     
     return (
