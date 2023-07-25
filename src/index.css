@@ -1807,7 +1807,7 @@ input[type='radio']:checked:after {
     background-position: 20% 115%;
     background-size: 31%;
     background-repeat: no-repeat; */
-    aspect-ratio: 1.982;
+ 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1934,8 +1934,10 @@ input[type='radio']:checked:after {
         transform: translateY(-100px);
     }
 
-   
-
+    #showcase-zx9 {
+       
+        aspect-ratio: 1.982;
+    }
 }
 @media only screen and (min-width: 64.01em) {
     .transparent {
