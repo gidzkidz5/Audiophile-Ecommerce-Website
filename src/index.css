@@ -189,6 +189,7 @@ li {
 }
 .cart-btn {
     cursor: pointer;
+    color: #000;
 }
 
 .cart-btn:hover {
@@ -311,6 +312,7 @@ ul {
     border-radius: 8px;
     width: 15px;
 
+    color:#000;
     display: flex;
     justify-content: center;
     align-items: center;
