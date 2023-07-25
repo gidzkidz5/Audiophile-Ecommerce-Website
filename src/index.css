@@ -2127,7 +2127,7 @@ input[type='radio']:checked:after {
         position: relative;
         gap: 4rem;
         padding-block: 60px;
-        overflow:hidden;
+        overflow: visible;
         box-sizing: border-box;
     }
 
